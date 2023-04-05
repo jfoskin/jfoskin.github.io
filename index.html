@@ -5,35 +5,6 @@
     <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title>
 
     <!--Placeholder for Segment Snippet -->
-    <script>
-        !function () {
-            var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
-                analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"]; analytics.factory = function (e) { return function () { var t = Array.prototype.slice.call(arguments); t.unshift(e); analytics.push(t); return analytics } }; for (var e = 0; e < analytics.methods.length; e++) { var key = analytics.methods[e]; analytics[key] = analytics.factory(key) } analytics.load = function (key, e) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(t, n); analytics._loadOptions = e }; analytics._writeKey = "TxtTBB7w9hHE5vuyRA3O1IDCACJqOsCC";; analytics.SNIPPET_VERSION = "4.15.3";
-                analytics.load("TxtTBB7w9hHE5vuyRA3O1IDCACJqOsCC");
-                analytics.page();
-            }
-        }();
-
-    </script>
-
-    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "352013ab-3131-4430-8062-90cbd59a3982"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();
-    </script>
-
-    <script>
-        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
-        posthog.init('phc_sTmjI4smRiPxyaDrYylK9pf6ohXGRlQEDeLDbR626EC', { api_host: 'https://app.posthog.com' })
-    </script>
-
-    <script type='text/javascript'>
-        window.smartlook || (function (d) {
-            var o = smartlook = function () { o.api.push(arguments) }, h = d.getElementsByTagName('head')[0];
-            var c = d.createElement('script'); o.api = new Array(); c.async = true; c.type = 'text/javascript';
-            c.charset = 'utf-8'; c.src = 'https://web-sdk.smartlook.com/recorder.js'; h.appendChild(c);
-        })(document);
-        smartlook('init', '887d4beb854806d959c314a74d6d039b8ddba198', { region: 'eu' });
-    </script>
-
-
 
 </head>
 
@@ -53,39 +24,41 @@
         <br><br>
         Email: <input name="email" required="" size="75" type="email" />
         <br><br>
-        Age: <input name="age" required="" size="75" type="number" />
-        <br><br>
         <input name="submit" type="submit" value="submit" />
     </form>
 
     <!--Placeholder for identify and track script -->
 
-    <script type="text/javascript">
-        function identify(e) {
-            e.preventDefault();
-            var form = e.target;
-            var email = form["email"].value;
-            var fullname = form["fullname"].value;
-            var age = form["age"].value;
-            var destination = form["destination"].value;
-            var details = form["details"].value;
-            var user = {
-                email: email,
-                name: fullname,
-                age: age,
-                destination: destination,
-                details: details
-            };
-            analytics.identify('1234', {
-                email: email,
-                name: fullname,
-                age: age,
-            });
-            analytics.track('destination submitted', user, function () {
-                window.location.href = "";
-            });
-        }
-    </script>
+</body>
+
+</html>
+
+<!--Placeholder for identify and track script -->
+
+
+<script type="text/javascript">
+    function identify(e) {
+        e.preventDefault();
+        var form = e.target;
+        var email = form["email"].value;
+        var fullname = form["fullname"].value;
+        var destination = form["destination"].value;
+        var details = form["details"].value;
+        var user = {
+            email: email,
+            name: fullname,
+            destination: destination,
+            details: details
+        };
+        analytics.identify('1234', {
+            email: email,
+            name: fullname
+        });
+        analytics.track('destination submitted', user, function () {
+            window.location.href = "";
+        });
+    }
+</script>
 
 </body>
 
