@@ -62,6 +62,27 @@
 
 
 <script type="text/javascript">
+
+    const randomId = function (length = 10) {
+        return Math.random().toString(36).substring(2, length + 2);
+    };
+
+    const getId = function ({ length, existing = [] }) {
+        const limit = 100; // max tries to create unique id
+        let attempts = 0; // how many attempts
+        let id = false;
+        while (!id && attempts < limit) {
+            id = randomId(length); // create id
+            if (!checkId(id, existing)) { // check unique
+                id = false; // reset id
+                attempts++; // record failed attempt
+            }
+        }
+        return id; // the id or false if did not get unique after max attempts
+    };
+
+    let newId = newrandomId(10)
+
     function identify(e) {
         e.preventDefault();
         var form = e.target;
@@ -77,7 +98,7 @@
             destination: destination,
             details: details
         };
-        analytics.identify('43547', {
+        analytics.identify(newId, {
             email: email,
             name: fullname,
             phone: phone
